@@ -3,12 +3,14 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    //Variables for game speed and scoring
     public int score;
     public int highscore;
+    public float TimeScale;
+    //Variables for UI 
     public Text ScoreText;
     public Text GameOverText;
     public Text HighscoreText;
-    public Player player;
     public Text WelcomeText;
     public Canvas SaveScreenCanvas;
     public InputField Slot1Name;
@@ -18,7 +20,8 @@ public class GameController : MonoBehaviour
     public Text Slot2Score;
     public Text Slot3Score;
     public Text PauseText;
-    public float TimeScale;
+    //Reference to the player object
+    public Player player;
 
     public void Awake()
     {
@@ -31,15 +34,15 @@ public class GameController : MonoBehaviour
     /// </summary>
     public void Play()
     {
-        score = 0;
-        ScoreText.text = "Score: " + score;
-        GameOverText.gameObject.SetActive(false);
-        WelcomeText.gameObject.SetActive(false);
         MoveObstacles[] obstacles = FindObjectsOfType<MoveObstacles>();
         foreach(MoveObstacles o in obstacles)
         {
             Destroy(o.gameObject);
         }
+        score = 0;
+        ScoreText.text = "Score: " + score;
+        GameOverText.gameObject.SetActive(false);
+        WelcomeText.gameObject.SetActive(false);
         player.transform.position = new Vector3(-7, 0, 0);
         player.direction.y = 0;
         Time.timeScale = 1f;
@@ -69,6 +72,9 @@ public class GameController : MonoBehaviour
 
         Pause();
     }
+    /// <summary>
+    /// Incremets score and displays it
+    /// </summary>
     public void ScoreUp()
     {
         score++;
@@ -89,6 +95,10 @@ public class GameController : MonoBehaviour
             TogglePause();
         }
     }
+    /// <summary>
+    /// Displays the Canvas, where the UI for saving scores is located. 
+    /// Also fills the Input Fields with saved scores, if there are any.
+    /// </summary>
     private void OpenSaveScreen()
     {
         GameOverText.gameObject.SetActive(false);
@@ -108,6 +118,8 @@ public class GameController : MonoBehaviour
         SaveScreenCanvas.gameObject.SetActive(false);
         WelcomeText.gameObject.SetActive(true);
     }
+    
+    //Could be solved much more elegantly but I had a bit of time pressure, so I just copied it
     public void SaveSlot1()
     {
         PlayerPrefs.SetString("Slot1Name", Slot1Name.text);
@@ -123,16 +135,21 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetString("Slot3Name", Slot3Name.text);
         PlayerPrefs.SetInt("Slot3Score", score);
     }
+    /// <summary>
+    /// Shows the pause menu if it is not active and pauses the game.
+    /// If the pause menu is already active, the game gets resumed.
+    /// </summary>
     public void TogglePause()
     {
         if(PauseText.gameObject.activeSelf)
         {
             PauseText.gameObject.SetActive(false);
-            Time.timeScale = TimeScale;
             player.enabled = true;
+            Time.timeScale = TimeScale;
         }
         else
         {
+            //Timescale gets saved so the game can continue with the same speed as before pausing
             TimeScale = Time.timeScale;
             Pause();
             PauseText.gameObject.SetActive(true);

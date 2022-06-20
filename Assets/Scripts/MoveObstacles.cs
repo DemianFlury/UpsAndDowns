@@ -35,7 +35,7 @@ public class MoveObstacles : MonoBehaviour
     /// <summary>
     /// Checks, if the score has increased and returns a bool
     /// </summary>
-    /// <param name="score"></param>
+    /// <param name="newscore"></param>
     /// <returns></returns>
     private bool ScoreIncreased(int newscore)
     {
