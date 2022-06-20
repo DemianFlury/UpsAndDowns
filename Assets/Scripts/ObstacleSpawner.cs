@@ -17,6 +17,9 @@ public class ObstacleSpawner : MonoBehaviour
         CancelInvoke(nameof(Spawn));
     }
 
+    /// <summary>
+    /// Spawns the tubes in a position between MinHeight and MaxHeight
+    /// </summary>
     private void Spawn()
     {
         GameObject Tubes = Instantiate(prefab, transform.position, Quaternion.identity);

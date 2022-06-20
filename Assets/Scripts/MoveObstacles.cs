@@ -31,20 +31,25 @@ public class MoveObstacles : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (IncreaseSpeed(gamecontroller.score))
+        if (ScoreIncreased(gamecontroller.score))
         {
             Time.timeScale += 0.001f;
         }
     }
-    private bool IncreaseSpeed(int score)
+    /// <summary>
+    /// Checks, if the score has increased and returns a bool
+    /// </summary>
+    /// <param name="score"></param>
+    /// <returns></returns>
+    private bool ScoreIncreased(int newscore)
     {
-        if(score == 0)
+        if(newscore == 0)
         {
             oldscore = 0;
         }
-        else if (score > oldscore)
+        else if (newscore > oldscore)
         {
-            oldscore++;
+            oldscore = newscore;
             return true;
         }
         
