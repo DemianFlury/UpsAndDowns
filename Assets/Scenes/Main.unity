@@ -704,10 +704,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   highscore: 0
+  TimeScale: 0
   ScoreText: {fileID: 0}
   GameOverText: {fileID: 0}
   HighscoreText: {fileID: 0}
-  player: {fileID: 0}
   WelcomeText: {fileID: 0}
   SaveScreenCanvas: {fileID: 0}
   Slot1Name: {fileID: 0}
@@ -717,7 +717,7 @@ MonoBehaviour:
   Slot2Score: {fileID: 0}
   Slot3Score: {fileID: 0}
   PauseText: {fileID: 0}
-  TimeScale: 0
+  player: {fileID: 0}
 --- !u!114 &238222812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1931,10 +1931,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   highscore: 0
+  TimeScale: 0
   ScoreText: {fileID: 2002253883}
   GameOverText: {fileID: 1369073898}
   HighscoreText: {fileID: 1487782879}
-  player: {fileID: 1680610220}
   WelcomeText: {fileID: 908276716}
   SaveScreenCanvas: {fileID: 580570891}
   Slot1Name: {fileID: 427211316}
@@ -1944,7 +1944,7 @@ MonoBehaviour:
   Slot2Score: {fileID: 296039934}
   Slot3Score: {fileID: 86731879}
   PauseText: {fileID: 238222813}
-  TimeScale: 0
+  player: {fileID: 1680610220}
 --- !u!1 &901154528
 GameObject:
   m_ObjectHideFlags: 0
@@ -1999,10 +1999,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   highscore: 0
+  TimeScale: 0
   ScoreText: {fileID: 0}
   GameOverText: {fileID: 0}
   HighscoreText: {fileID: 0}
-  player: {fileID: 0}
   WelcomeText: {fileID: 0}
   SaveScreenCanvas: {fileID: 0}
   Slot1Name: {fileID: 0}
@@ -2012,7 +2012,7 @@ MonoBehaviour:
   Slot2Score: {fileID: 0}
   Slot3Score: {fileID: 0}
   PauseText: {fileID: 0}
-  TimeScale: 0
+  player: {fileID: 0}
 --- !u!114 &901154531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2124,10 +2124,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   highscore: 0
+  TimeScale: 0
   ScoreText: {fileID: 0}
   GameOverText: {fileID: 0}
   HighscoreText: {fileID: 0}
-  player: {fileID: 0}
   WelcomeText: {fileID: 0}
   SaveScreenCanvas: {fileID: 0}
   Slot1Name: {fileID: 0}
@@ -2137,7 +2137,7 @@ MonoBehaviour:
   Slot2Score: {fileID: 0}
   Slot3Score: {fileID: 0}
   PauseText: {fileID: 0}
-  TimeScale: 0
+  player: {fileID: 0}
 --- !u!114 &908276715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2191,7 +2191,9 @@ MonoBehaviour:
     Ups n'' Downs
 
 
-    play (space)'
+    play (space)
+
+    quit game (esc)'
 --- !u!222 &908276717
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2954,7 +2956,9 @@ MonoBehaviour:
 
     replay (space)
 
-    save score (S)'
+    save score (S)
+
+    Quit Game (esc)'
 --- !u!222 &1369073899
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2977,10 +2981,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   highscore: 0
+  TimeScale: 0
   ScoreText: {fileID: 0}
   GameOverText: {fileID: 0}
   HighscoreText: {fileID: 0}
-  player: {fileID: 0}
   WelcomeText: {fileID: 0}
   SaveScreenCanvas: {fileID: 0}
   Slot1Name: {fileID: 0}
@@ -2990,7 +2994,7 @@ MonoBehaviour:
   Slot2Score: {fileID: 0}
   Slot3Score: {fileID: 0}
   PauseText: {fileID: 0}
-  TimeScale: 0
+  player: {fileID: 0}
 --- !u!1 &1487782876
 GameObject:
   m_ObjectHideFlags: 0
