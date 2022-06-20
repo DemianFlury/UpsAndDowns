@@ -5,7 +5,6 @@ public class GameController : MonoBehaviour
 {
     //Variables for game speed and scoring
     public int score;
-    public int highscore;
     public float TimeScale;
     //Variables for UI 
     public Text ScoreText;
@@ -158,5 +157,10 @@ public class GameController : MonoBehaviour
             Pause();
             PauseText.gameObject.SetActive(true);
         }
+    }
+    public void ResetHighscores()
+    {
+        PlayerPrefs.DeleteAll();
+        HighscoreText.text = "Highscore: 0";
     }
 }
