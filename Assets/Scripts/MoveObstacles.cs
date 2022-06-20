@@ -5,7 +5,6 @@ public class MoveObstacles : MonoBehaviour
     private float leftEdge;
     public float speed;
     private GameController gamecontroller;
-    private ObstacleSpawner spawner;
     private int oldscore;
 
     public MoveObstacles()
@@ -15,9 +14,6 @@ public class MoveObstacles : MonoBehaviour
     private void Awake()
     {
         gamecontroller = FindObjectOfType<GameController>();
-        spawner = FindObjectOfType<ObstacleSpawner>();
-
-
     }
     private void Start()
     {
@@ -27,7 +23,7 @@ public class MoveObstacles : MonoBehaviour
     void Update()
     {
         transform.position += Vector3.left * speed * Time.deltaTime;
-        if(transform.position.x < leftEdge)
+        if (transform.position.x < leftEdge)
         {
             Destroy(gameObject);
         }
@@ -43,7 +39,7 @@ public class MoveObstacles : MonoBehaviour
     /// <returns></returns>
     private bool ScoreIncreased(int newscore)
     {
-        if(newscore == 0)
+        if (newscore == 0)
         {
             oldscore = 0;
         }
@@ -52,7 +48,7 @@ public class MoveObstacles : MonoBehaviour
             oldscore = newscore;
             return true;
         }
-        
+
         return false;
     }
 }

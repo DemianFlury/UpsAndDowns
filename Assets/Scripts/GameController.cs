@@ -14,6 +14,11 @@ public class GameController : MonoBehaviour
     public InputField Slot1Name;
     public InputField Slot2Name;
     public InputField Slot3Name;
+    public Text Slot1Score;
+    public Text Slot2Score;
+    public Text Slot3Score;
+    public Text PauseText;
+    public float TimeScale;
 
     public void Awake()
     {
@@ -50,7 +55,7 @@ public class GameController : MonoBehaviour
     }
     
     /// <summary>
-    /// 
+    /// Updates the Highscore and displays the GameOverText
     /// </summary>
     public void GameOver()
     {
@@ -79,14 +84,24 @@ public class GameController : MonoBehaviour
         {
             OpenSaveScreen();
         }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause();
+        }
     }
     private void OpenSaveScreen()
     {
         GameOverText.gameObject.SetActive(false);
         SaveScreenCanvas.gameObject.SetActive(true);
+
         Slot1Name.text = PlayerPrefs.GetString("Slot1Name", "Slot 1 empty");
+        Slot1Score.text = PlayerPrefs.GetInt("Slot1Score", 0).ToString();
+
         Slot2Name.text = PlayerPrefs.GetString("Slot2Name", "Slot 2 empty");
+        Slot2Score.text = PlayerPrefs.GetInt("Slot2Score", 0).ToString();
+        
         Slot3Name.text = PlayerPrefs.GetString("Slot3Name", "Slot 3 empty");
+        Slot3Score.text = PlayerPrefs.GetInt("Slot3Score", 0).ToString();
     }
     public void ExitSaveScreen()
     {
@@ -107,5 +122,20 @@ public class GameController : MonoBehaviour
     {
         PlayerPrefs.SetString("Slot3Name", Slot3Name.text);
         PlayerPrefs.SetInt("Slot3Score", score);
+    }
+    public void TogglePause()
+    {
+        if(PauseText.gameObject.activeSelf)
+        {
+            PauseText.gameObject.SetActive(false);
+            Time.timeScale = TimeScale;
+            player.enabled = true;
+        }
+        else
+        {
+            TimeScale = Time.timeScale;
+            Pause();
+            PauseText.gameObject.SetActive(true);
+        }
     }
 }
