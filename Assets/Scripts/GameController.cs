@@ -90,9 +90,13 @@ public class GameController : MonoBehaviour
         {
             OpenSaveScreen();
         }
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) && !(GameOverText.gameObject.activeSelf || WelcomeText.gameObject.activeSelf))
         {
             TogglePause();
+        }
+        if ((GameOverText.gameObject.activeSelf || WelcomeText.gameObject.activeSelf) && Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
         }
     }
     /// <summary>
